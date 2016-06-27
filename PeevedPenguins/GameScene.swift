@@ -14,6 +14,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var catapultArm: SKSpriteNode!
     var catapult: SKSpriteNode!
     var levelNode: SKNode!
+    
+    var wPenguin1: SKSpriteNode!
+    var wPenguin2: SKSpriteNode!
+    var wPenguin3: SKSpriteNode!
+    
     /* Camera helpers */
     var cameraTarget: SKNode?
     
@@ -26,6 +31,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var penguinJoint: SKPhysicsJointPin?
     
+    var penguinCount: Int = 0
+    var score: Int = 0
+    var scoreLabel: SKLabelNode!
+    
+//    var highscore: Int = 0
+//    var highScoreLabel: SKLabelNode!
     
     override func didMoveToView(view: SKView) {
         
@@ -35,6 +46,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Set reference to catapultArm node */
         catapultArm = childNodeWithName("catapultArm") as! SKSpriteNode
         catapult = childNodeWithName("catapult") as! SKSpriteNode
+        
+        //Waiting Penguins
+        wPenguin1 = childNodeWithName("waitingPenguin1") as! SKSpriteNode
+        wPenguin2 = childNodeWithName("waitingPenguin2") as! SKSpriteNode
+        wPenguin3 = childNodeWithName("waitingPenguin3") as! SKSpriteNode
+        
+        //Score
+        scoreLabel = childNodeWithName("//scoreLabel") as! SKLabelNode
+//        highScoreLabel = childNodeWithName("//highScoreLabel") as! SKLabelNode
         
         /* Set reference to the level loader node */
         levelNode = childNodeWithName("//levelNode")
@@ -78,7 +98,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
             
             /* Ensure correct aspect mode */
-            scene.scaleMode = .AspectFill
+            scene.scaleMode = .AspectFit
             
             /* Show debug */
             skView.showsPhysics = true
@@ -87,8 +107,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             /* Restart game scene */
             skView.presentScene(scene)
+            self.penguinCount = 0
             
         }
+        
+        
         
         /* Pin joint catapult and catapult arm */
         let catapultPinJoint = SKPhysicsJointPin.jointWithBodyA(catapult.physicsBody!, bodyB: catapultArm.physicsBody!, anchor: CGPoint(x:220 ,y:105))
@@ -154,6 +177,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let resourcePath = NSBundle.mainBundle().pathForResource("Penguin", ofType: "sks")
         let penguin = MSReferenceNode(URL: NSURL (fileURLWithPath: resourcePath!))
         addChild(penguin)
+        
+        //Add to penguin life count
+        penguinCount += 1
+        
+        
+        //Make waiting penguins visible or not
+        
+        switch penguinCount {
+        case 1:
+            wPenguin3.removeFromParent()
+        case 2:
+            wPenguin2.removeFromParent()
+        case 3:
+            wPenguin1.removeFromParent()
+        default:
+            print(penguinCount)
+            
+        }
+        
+        
+        
         
         /* Position penguin in the catapult bucket area */
         penguin.avatar.position = catapultArm.position + CGPoint(x: 32, y: 50)
@@ -222,6 +266,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func dieSeal(node: SKNode) {
         /* Seal death*/
         
+        
         /* Load our particle effect */
         let particles = SKEmitterNode(fileNamed: "SealExplosion")!
         
@@ -242,6 +287,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let sealDeath = SKAction.runBlock({
             /* Remove seal node from scene */
             node.removeFromParent()
+            self.score += 1
+            
+//            if self.score > self.highscore {
+//                self.highscore = self.score
+//                print ("You got a high score")
+//                self.highScoreLabel.text = String(self.highscore)
+//            }
+            
+                /* Update score label */
+                self.scoreLabel.text = String(self.score)
+                return
+                    
+           
+            
+            print(self.score)
         })
         
         self.runAction(sealDeath)
@@ -255,29 +315,59 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             /* Set camera position to follow target horizontally, keep vertical locked */
             camera?.position = CGPoint(x:cameraTarget.position.x, y:camera!.position.y)
+            
+            /* Clamp camera scrolling to our visible scene area only */
+            camera?.position.x.clamp(283, 677)
+            
+            /* Check penguin has come to rest */
+            if cameraTarget.physicsBody?.joints.count == 0 && cameraTarget.physicsBody?.velocity.length() < 0.18 || cameraTarget.position.x > CGFloat(677)  {
+                
+                
+                cameraTarget.removeFromParent()
+                
+                /* Reset catapult arm */
+                catapultArm.physicsBody?.velocity = CGVector(dx:0, dy:0)
+                catapultArm.physicsBody?.angularVelocity = 0
+                catapultArm.zRotation = 0
+                
+                /* Reset camera */
+                let cameraReset = SKAction.moveTo(CGPoint(x:284, y:camera!.position.y), duration: 1.5)
+                let cameraDelay = SKAction.waitForDuration(0.5)
+                let cameraSequence = SKAction.sequence([cameraDelay,cameraReset])
+                
+                camera?.runAction(cameraSequence)
+                
+                
+                
+            }
+            
+            
+            if cameraTarget.physicsBody?.joints.count == 0 && cameraTarget.physicsBody?.velocity.length() < 0.18 && penguinCount >= 3 {
+                
+                /* Grab reference to our SpriteKit view */
+                let skView = self.view as SKView!
+                
+                /* Load Game scene */
+                let scene = GameScene(fileNamed:"GameScene") as GameScene!
+                
+                /* Ensure correct aspect mode */
+                scene.scaleMode = .AspectFit
+                
+                /* Show debug */
+                skView.showsPhysics = true
+                skView.showsDrawCount = true
+                skView.showsFPS = false
+                
+                /* Restart game scene */
+                skView.presentScene(scene)
+                
+                penguinCount = 0
+            }
+
+
+            
         }
-        /* Clamp camera scrolling to our visible scene area only */
-        camera?.position.x.clamp(283, 677)
-        
-        /* Check penguin has come to rest */
-        if cameraTarget.physicsBody?.joints.count == 0 && cameraTarget.physicsBody?.velocity.length() < 0.18 /*|| cameraTarget.position.x > CGFloat(677) */ {
-            
-            cameraTarget.removeFromParent()
-            
-            /* Reset catapult arm */
-            catapultArm.physicsBody?.velocity = CGVector(dx:0, dy:0)
-            catapultArm.physicsBody?.angularVelocity = 0
-            catapultArm.zRotation = 0
-            
-            /* Reset camera */
-            let cameraReset = SKAction.moveTo(CGPoint(x:284, y:camera!.position.y), duration: 1.5)
-            let cameraDelay = SKAction.waitForDuration(0.5)
-            let cameraSequence = SKAction.sequence([cameraDelay,cameraReset])
-            
-            camera?.runAction(cameraSequence)
-        }
-    }
-    
+            }
     
     
 }

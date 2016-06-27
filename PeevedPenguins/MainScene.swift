@@ -20,7 +20,7 @@ class MainScene: SKScene {
         /* Set UI connections */
         buttonPlay = self.childNodeWithName("buttonPlay") as! MSButtonNode
         
-        /* Setup restart button selection handler */
+        /* Setup start button selection handler */
         buttonPlay.selectedHandler = {
             
             /* Grab reference to our SpriteKit view */
@@ -30,7 +30,7 @@ class MainScene: SKScene {
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
             
             /* Ensure correct aspect mode */
-            scene.scaleMode = .AspectFill
+            scene.scaleMode = .AspectFit
             
             /* Show debug */
             skView.showsPhysics = true
