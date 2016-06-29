@@ -2,4 +2,84 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PeevedPenguins/GameScene.swift"
+            timestampString = "488758156.929873"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "GameScene"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PeevedPenguins.GameScene.__deallocating_deinit"
+                  moduleName = "PeevedPenguins"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Tassos/Desktop/Code/PeevedPenguins/PeevedPenguins/GameScene.swift"
+                  timestampString = "488758157.266547"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PeevedPenguins.GameScene.init (size : __C.CGSize) -&gt; PeevedPenguins.GameScene"
+                  moduleName = "PeevedPenguins"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Tassos/Desktop/Code/PeevedPenguins/PeevedPenguins/GameScene.swift"
+                  timestampString = "488758157.267467"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PeevedPenguins.GameScene.init () -&gt; PeevedPenguins.GameScene"
+                  moduleName = "PeevedPenguins"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Tassos/Desktop/Code/PeevedPenguins/PeevedPenguins/GameScene.swift"
+                  timestampString = "488758157.267574"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PeevedPenguins.GameScene.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;PeevedPenguins.GameScene&gt;"
+                  moduleName = "PeevedPenguins"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Tassos/Desktop/Code/PeevedPenguins/PeevedPenguins/GameScene.swift"
+                  timestampString = "488758157.267657"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

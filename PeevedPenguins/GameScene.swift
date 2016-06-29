@@ -35,6 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var score: Int = 0
     var scoreLabel: SKLabelNode!
     
+    
 //    var highscore: Int = 0
 //    var highScoreLabel: SKLabelNode!
     
@@ -114,7 +115,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         /* Pin joint catapult and catapult arm */
-        let catapultPinJoint = SKPhysicsJointPin.jointWithBodyA(catapult.physicsBody!, bodyB: catapultArm.physicsBody!, anchor: CGPoint(x:220 ,y:105))
+        let catapultPinJoint = SKPhysicsJointPin.jointWithBodyA(catapult.physicsBody!, bodyB: catapultArm.physicsBody!, anchor: CGPoint(x:210 ,y:103))
         physicsWorld.addJoint(catapultPinJoint)
         
         /* Spring joint catapult arm and cantilever node */

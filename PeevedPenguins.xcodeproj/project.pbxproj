@@ -29,6 +29,10 @@
 		967961011D20943600CDAD02 /* SealExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 967960FF1D20943600CDAD02 /* SealExplosion.sks */; };
 		967961021D20943600CDAD02 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 967961001D20943600CDAD02 /* spark.png */; };
 		9679610B1D209B4E00CDAD02 /* sfx_seal.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9679610A1D209B4E00CDAD02 /* sfx_seal.caf */; };
+		9696C9531D21D305004DE383 /* BombPenguin.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9696C9521D21D305004DE383 /* BombPenguin.sks */; };
+		9696C9551D21D7CA004DE383 /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9696C9541D21D7CA004DE383 /* Level2.sks */; };
+		9696C9D51D22368A004DE383 /* Appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9696C9D41D22368A004DE383 /* Appicon.png */; };
+		9696C9D71D223751004DE383 /* Appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9696C9D61D223751004DE383 /* Appicon.png */; };
 		96CF775E1D1DE26900155B73 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF77521D1DE26900155B73 /* CGFloat+Extensions.swift */; };
 		96CF775F1D1DE26900155B73 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF77531D1DE26900155B73 /* CGPoint+Extensions.swift */; };
 		96CF77601D1DE26900155B73 /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF77541D1DE26900155B73 /* CGVector+Extensions.swift */; };
@@ -89,6 +93,10 @@
 		967960FF1D20943600CDAD02 /* SealExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SealExplosion.sks; sourceTree = "<group>"; };
 		967961001D20943600CDAD02 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		9679610A1D209B4E00CDAD02 /* sfx_seal.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sfx_seal.caf; path = assets.atlas/sfx_seal.caf; sourceTree = "<group>"; };
+		9696C9521D21D305004DE383 /* BombPenguin.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BombPenguin.sks; sourceTree = "<group>"; };
+		9696C9541D21D7CA004DE383 /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
+		9696C9D41D22368A004DE383 /* Appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Appicon.png; path = assets.atlas/Appicon.png; sourceTree = "<group>"; };
+		9696C9D61D223751004DE383 /* Appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Appicon.png; path = assets.atlas/Appicon.png; sourceTree = "<group>"; };
 		96CF77521D1DE26900155B73 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		96CF77531D1DE26900155B73 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		96CF77541D1DE26900155B73 /* CGVector+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+Extensions.swift"; sourceTree = "<group>"; };
@@ -132,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				961DA2291D1DFCE6001046D5 /* Level1.sks */,
+				9696C9541D21D7CA004DE383 /* Level2.sks */,
 			);
 			name = Levels;
 			sourceTree = "<group>";
@@ -172,6 +181,8 @@
 				96476D191D1D9E270050A9AB /* GameViewController.swift */,
 				96476D1B1D1D9E270050A9AB /* Main.storyboard */,
 				96476D1E1D1D9E270050A9AB /* Assets.xcassets */,
+				9696C9D61D223751004DE383 /* Appicon.png */,
+				9696C9D41D22368A004DE383 /* Appicon.png */,
 				96476D201D1D9E270050A9AB /* LaunchScreen.storyboard */,
 				96476D231D1D9E270050A9AB /* Info.plist */,
 			);
@@ -203,6 +214,7 @@
 				96476D861D1DA93B0050A9AB /* MainScene.swift */,
 				96476D771D1DA1560050A9AB /* Bear.sks */,
 				96476D7B1D1DA36C0050A9AB /* Penguin.sks */,
+				9696C9521D21D305004DE383 /* BombPenguin.sks */,
 				96476D821D1DA67B0050A9AB /* MainScene.sks */,
 				96476D7F1D1DA5310050A9AB /* Seal.sks */,
 				967960FF1D20943600CDAD02 /* SealExplosion.sks */,
@@ -338,12 +350,16 @@
 				96476D801D1DA5310050A9AB /* Seal.sks in Resources */,
 				96476D161D1D9E270050A9AB /* GameScene.sks in Resources */,
 				967961011D20943600CDAD02 /* SealExplosion.sks in Resources */,
+				9696C9551D21D7CA004DE383 /* Level2.sks in Resources */,
 				96476D221D1D9E270050A9AB /* LaunchScreen.storyboard in Resources */,
+				9696C9531D21D305004DE383 /* BombPenguin.sks in Resources */,
 				96476D1F1D1D9E270050A9AB /* Assets.xcassets in Resources */,
 				967961021D20943600CDAD02 /* spark.png in Resources */,
 				96476D781D1DA1560050A9AB /* Bear.sks in Resources */,
+				9696C9D51D22368A004DE383 /* Appicon.png in Resources */,
 				96476D741D1DA0950050A9AB /* assets.atlas in Resources */,
 				96476D1D1D1D9E270050A9AB /* Main.storyboard in Resources */,
+				9696C9D71D223751004DE383 /* Appicon.png in Resources */,
 				9679610B1D209B4E00CDAD02 /* sfx_seal.caf in Resources */,
 				96476D831D1DA67B0050A9AB /* MainScene.sks in Resources */,
 				96476D7C1D1DA36C0050A9AB /* Penguin.sks in Resources */,
